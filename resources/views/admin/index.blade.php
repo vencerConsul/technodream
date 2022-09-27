@@ -30,7 +30,7 @@
 
 
     <div class="table-data">
-        <div class="order">
+        <div class="dashboard-user-tbl">
             <div class="head">
                 <h3>Recent Orders</h3>
                 <i class='bx bx-search' ></i>

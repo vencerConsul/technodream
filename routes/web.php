@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::group(['middleware' => 'is_admin'], function(){
         Route::get('/admin', [AdminIndexController::class, 'index'])->name('admin.dashboard');
         Route::get('/admin/users', [AdminUsersController::class, 'index'])->name('users.page');
+        Route::get('/admin/users/add', [AdminUsersController::class, 'ShowAddUser'])->name('users.page.add');
+        Route::post('/admin/users/add', [AdminUsersController::class, 'StoreUser'])->name('users.page.store');
     });
 
 });

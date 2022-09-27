@@ -337,11 +337,11 @@ body {
 	color: var(--blue);
 	pointer-events: unset;
 }
-#content main .head-title .btn-download {
+#content main .head-title .date-time {
 	height: 36px;
 	padding: 0 16px;
-	border-radius: 36px;
-	background: var(--blue);
+	border-radius: 20px;
+	background: #294fb3;
 	color: var(--light);
 	display: flex;
 	justify-content: center;
@@ -349,6 +349,9 @@ body {
 	grid-gap: 10px;
 	font-weight: 500;
 	pointer-events: none;
+}
+#content main .head-title .date-time small{
+	font-weight: 200;
 }
 
 
@@ -421,6 +424,7 @@ body {
 	align-items: center;
 	grid-gap: 16px;
 	margin-bottom: 24px;
+	position: relative;
 }
 #content main .table-data .head h3 {
 	margin-right: auto;
@@ -431,55 +435,385 @@ body {
 	cursor: pointer;
 }
 
-#content main .table-data .order {
+/* dashboard page */
+#content main .table-data .dashboard-user-tbl {
 	flex-grow: 1;
-	flex-basis: 500px;
+	flex-basis: 950px;
 }
-#content main .table-data .order table {
+#content main .table-data .dashboard-user-tbl table {
 	width: 100%;
 	border-collapse: collapse;
 }
-#content main .table-data .order table th {
+#content main .table-data .dashboard-user-tbl table th {
 	padding-bottom: 12px;
 	font-size: 13px;
 	text-align: left;
 	border-bottom: 1px solid var(--grey);
 }
-#content main .table-data .order table td {
+#content main .table-data .dashboard-user-tbl table td {
 	padding: 16px 0;
 }
-#content main .table-data .order table tr td:first-child {
+#content main .table-data .dashboard-user-tbl table tr td:first-child {
 	display: flex;
 	align-items: center;
 	grid-gap: 12px;
 	padding-left: 6px;
 }
-#content main .table-data .order table td img {
+#content main .table-data .dashboard-user-tbl table td img {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
 	object-fit: cover;
 }
-#content main .table-data .order table tbody tr:hover {
+#content main .table-data .dashboard-user-tbl table tbody tr:hover {
 	background: var(--grey);
 }
-#content main .table-data .order table tr td .status {
+#content main .table-data .dashboard-user-tbl table tr td .status {
 	font-size: 10px;
 	padding: 6px 16px;
 	color: var(--light);
 	border-radius: 20px;
 	font-weight: 700;
 }
-#content main .table-data .order table tr td .status.completed {
+#content main .table-data .dashboard-user-tbl table tr td .status.completed {
 	background: var(--blue);
 }
-#content main .table-data .order table tr td .status.process {
+#content main .table-data .dashboard-user-tbl table tr td .status.process {
 	background: var(--yellow);
 }
-#content main .table-data .order table tr td .status.pending {
+#content main .table-data .dashboard-user-tbl table tr td .status.pending {
 	background: var(--orange);
 }
+#content main .table-data .dashboard-user-tbl .user-option {
+	position: absolute;
+	margin-top: -200px;
+    overflow: hidden;
+	transition: 0.3s;
+    height: auto;
+    width: auto;
+    background: #fff;
+    right: 0;
+    top: 2rem;
+    border-radius: 15px;
+    padding: 10px;
+    -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+    box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+}
+#content main .table-data .dashboard-user-tbl .user-option.show{
+	margin-top: -200px;
+}
+#content main .table-data .dashboard-user-tbl .user-option ul li{
+	padding: 10px;
+	margin-bottom: 2px;
+}
+#content main .table-data .dashboard-user-tbl .user-option ul li a{
+	text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: #777;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    column-gap: 10px;
+}
+#content main .table-data .dashboard-user-tbl .user-option ul li:hover{
+	background: #f3f3f3;
+	border-radius: 15px;
+}
 
+/* users page */
+#content main .table-data .user-tbl {
+	flex-grow: 1;
+	flex-basis: 100%;
+	overflow: hidden;
+}
+#content main .table-data .user-tbl table {
+	width: 100%;
+	border-collapse: collapse;
+}
+#content main .table-data .user-tbl table th {
+	padding-bottom: 12px;
+	font-size: 13px;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+#content main .table-data .user-tbl table td {
+	padding: 16px 0;
+}
+#content main .table-data .user-tbl table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+#content main .table-data .user-tbl table td img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+#content main .table-data .user-tbl table tbody tr:hover {
+	background: var(--grey);
+}
+#content main .table-data .user-tbl table tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 700;
+}
+#content main .table-data .user-tbl table tr td .status.completed {
+	background: var(--blue);
+}
+#content main .table-data .user-tbl table tr td .status.process {
+	background: var(--yellow);
+}
+#content main .table-data .user-tbl table tr td .status.pending {
+	background: var(--orange);
+}
+#content main .table-data .user-tbl .user-option {
+	position: absolute;
+	margin-right: -200px;
+    overflow: hidden;
+	transition: 0.3s;
+    height: auto;
+    width: auto;
+    background: #fff;
+    right: 0;
+    top: 2rem;
+    border-radius: 15px;
+    padding: 10px;
+    -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+    box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+}
+#content main .table-data .user-tbl .user-option.show{
+	margin-right: -200px;
+}
+#content main .table-data .user-tbl .user-option ul li{
+	padding: 10px;
+	margin-bottom: 2px;
+}
+#content main .table-data .user-tbl .user-option ul li a{
+	text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: #777;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    column-gap: 10px;
+}
+#content main .table-data .user-tbl .user-option ul li:hover{
+	background: #f3f3f3;
+	border-radius: 15px;
+}
+
+/* add users page */
+#content main .table-data form{
+	height: 100%;
+}
+#content main .table-data .add-user-left {
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+#content main .table-data .add-user-left .avatar{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px 40px;
+	height: 100%;
+}
+#content main .table-data .add-user-left .avatar #avatar{
+	display: none;
+}
+#content main .table-data .add-user-left .avatar img{
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+	max-width: 100%;
+	margin-bottom: 30px;
+}
+#content main .table-data .add-user-left .avatar h1{
+	color: #777777;
+	margin-bottom: 30px;
+}
+#content main .table-data .add-user-left .avatar p{
+	text-align: center;
+	color: #a8a8a8;
+}
+#content main .table-data .add-user-left button{
+	background: #294fb3;
+	color: #ffffff;
+	border: 0;
+	border-radius: 20px;
+	padding: 15px 20px;
+	cursor: pointer;
+	margin-bottom: 30px;
+}
+#content main .table-data .add-user-form {
+	flex-grow: 1;
+	flex-basis: 50%;
+	overflow: hidden;
+	position: relative;
+}
+#content main .table-data .add-user-form .container{
+	padding: 50px 80px;
+	width: 100%;
+}
+#content main .table-data .add-user-form .container .form-content{
+	display: flex;
+	align-items: center;
+	column-gap: 50px;
+	margin-bottom: 30px;
+}
+#content main .table-data .add-user-form .container .form-content .label{
+	width: 15%;
+}
+#content main .table-data .add-user-form .container .form-content .input{
+	width: 85%;
+	position: relative;
+}
+#content main .table-data .add-user-form .container .form-content .gender{
+	display: flex;
+	column-gap: 50px;
+	align-items: center;
+}
+#content main .table-data .add-user-form .container .form-content .gender .radio{
+	display: flex;
+	column-gap: 20px;
+	align-items: center;
+}
+#content main .table-data .add-user-form .container .form-content .gender .radio i{
+	background: #f0f0f0;
+	padding: 10px;
+	border-radius: 50%;
+	color: #c0c0c0;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#content main .table-data .add-user-form .container .form-content .gender .radio i.active{
+	background: #294fb3;
+	color: #ffffff;
+}
+/* user role */
+#content main .table-data .add-user-form .container .form-content .role{
+	display: flex;
+	column-gap: 50px;
+	align-items: center;
+}
+#content main .table-data .add-user-form .container .form-content .role .radio{
+	display: flex;
+	column-gap: 20px;
+	align-items: center;
+}
+#content main .table-data .add-user-form .container .form-content .role .radio i{
+	background: #f0f0f0;
+	padding: 10px;
+	border-radius: 50%;
+	color: #c0c0c0;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#content main .table-data .add-user-form .container .form-content .role .radio i.active{
+	background: #294fb3;
+	color: #ffffff;
+}
+#content main .table-data .add-user-form .container .form-content .label input{
+	display: none;
+}
+#content main .table-data .add-user-form .container .form-content input{
+	background: #f0f0f0;
+	border: 0;
+	padding: 15px 20px;
+	width: 100%;
+	border-radius: 10px;
+}
+#content main .table-data .add-user-form .container .form-content input:focus{
+	outline: 2px solid #e2e2e2;
+}
+#content main .table-data .add-user-form .container .reset-user-btn{
+	background: #b1b1b1;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    padding: 15px 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+#content main .table-data .add-user-form .container .create-user-btn{
+	background: #294fb3;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    padding: 15px 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+/* add user buttons */
+.add-user-buttons{
+	display: flex;
+	justify-content: flex-end;
+	column-gap: 20px;
+}
+
+/* add user errors */
+.alert-container{
+	position: fixed;
+	transition: 0.3s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	padding: 20px;
+    background: #00000047;
+    z-index: 2000;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+    box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+}
+.alert-container .alert-error {
+    background: #f7f7f7;
+    border-radius: 15px;
+	overflow: hidden;
+}
+.alert-container .alert-error li {
+    font-size: 16px;
+    color: #939393;
+}
+.alert-container .alert-error .alert-header{
+	text-align: center;
+	padding: 50px 0 0 0;
+}
+.alert-container .alert-error .alert-body{
+	padding: 20px 60px;
+}
+.alert-container .alert-error .alert-header i{
+	font-size: 70px;
+	color: rgb(235, 145, 145);
+}
+.alert-container .alert-error .alert-footer{
+	width: 100%;
+    background: #ffffff;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert-container .alert-error .alert-footer button{
+	background: none;
+    border: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+	font-size: 16px;
+	text-transform: uppercase;
+}
 
 #content main .table-data .todo {
 	flex-grow: 1;
@@ -578,7 +912,7 @@ body {
 	#content main .table-data .head {
 		min-width: 420px;
 	}
-	#content main .table-data .order table {
+	#content main .table-data .user-tbl table {
 		min-width: 420px;
 	}
 	#content main .table-data .todo .todo-list {

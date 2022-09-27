@@ -23,5 +23,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('vencer.technodream@gmail.com'),
             'role' => 'td-admin'
         ]);
+
+        \App\Models\User::create([
+            'name' => 'TD User',
+            'email' => 'user@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+            'role' => 'td-user'
+        ]);
     }
 }

@@ -15,4 +15,21 @@ class AdminUsersController extends Controller
     public function index(){
         return view('admin.pages.users.index');
     }
+
+    public function ShowAddUser(){
+        return view('admin.pages.users.add');
+    }
+
+    public function StoreUser(Request $request){
+        $request->validate([
+            'firstname' => 'required',
+            'middlename' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|unique:users',
+            'gender' => 'required|in:Male,Female',
+            'role' => 'required|in:Admin,HR,Employee',
+            'position' => 'required'
+            
+        ]);
+    }
 }

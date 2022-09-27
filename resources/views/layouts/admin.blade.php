@@ -42,7 +42,7 @@
 					<span class="text">Message</span>
 				</a>
 			</li>
-			<li class="@if(Route::currentRouteName() == 'users.page') active @endif">
+			<li class="@if(Route::currentRouteName() == 'users.page' || Route::currentRouteName() == 'users.page.add') active @endif">
 				<a href="{{route('users.page')}}">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Users</span>
@@ -85,9 +85,9 @@
 						@endfor
                     </ul>
                 </div>
-                <a class="btn-download">
+                <a class="date-time">
                     <i class='bx bx-time-five'></i>
-                    <span class="date">Loading...</span>
+                    <small class="date">Loading...</small>
                 </a>
             </div>
 
