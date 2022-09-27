@@ -18,7 +18,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role == 'td-admin'){
+            if(Auth::user()->role == 'Admin' || Auth::user()->role == 'HR'){
                 return $next($request);
             }else{
                 abort(403);

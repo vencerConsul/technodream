@@ -41,7 +41,7 @@
                                         <label for="remember" class="text-white">Remember me</label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <input type="submit" value="Login" class="btn w-100">
+                                        <input type="submit" value="Login" class="btn w-100" onClick="this.form.submit(); this.disabled=true; this.value='Authenticating...';">
                                     </div>
                                 </div>
                             </form>

@@ -19,16 +19,26 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'TD Admin',
-            'email' => 'vencer.technodream@gmail.com',
-            'password' => Hash::make('vencer.technodream@gmail.com'),
-            'role' => 'td-admin'
+            'firstname' => 'first',
+            'middlename' => 'middle',
+            'lastname' => 'last',
+            'gender' => 'Male',
+            'position' => 'Programmer',
+            'email' => 'admin.technodream@gmail.com',
+            'password' => Hash::make('admin.technodream@gmail.com'),
+            'role' => 'Admin'
         ]);
 
         \App\Models\User::create([
             'name' => 'TD User',
-            'email' => 'user@gmail.com',
-            'password' => Hash::make('user@gmail.com'),
-            'role' => 'td-user'
+            'firstname' => 'first',
+            'middlename' => 'middle',
+            'lastname' => 'last',
+            'gender' => 'Male',
+            'position' => 'Programmer',
+            'email' => 'user.technodream@gmail.com',
+            'password' => Hash::make('user.technodream@gmail.com'),
+            'role' => 'Employee'
         ]);
     }
 }

@@ -26,6 +26,10 @@ setInterval(()=>{
 	dateTime.innerHTML = moment().format("MMMM D YYYY, dddd, h:mm:ss A");
 }, 1000)
 
+document.querySelector('.profile-img').addEventListener('click', function(){
+	
+});
+
 // user page
 function showUserOption(icon){
 	const userOption = document.querySelector('.user-option');
@@ -76,7 +80,11 @@ function chooseRole(role){
 }
 
 document.getElementById('avatar').addEventListener('change', function(e){
-	console.log(e);
+	const avatar = document.querySelector('.avatar img')
+	const [file] = this.files
+	if (file) {
+		avatar.src = URL.createObjectURL(file)
+  	}
 });
 
 // reset form

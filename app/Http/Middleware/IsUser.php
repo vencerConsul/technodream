@@ -18,7 +18,7 @@ class IsUser
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role == 'td-user'){
+            if(Auth::user()->role == 'Employee'){
                 return $next($request);
             }else{
                 abort(403);

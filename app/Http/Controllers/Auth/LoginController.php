@@ -21,10 +21,10 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function authenticated()
     {
-        if(Auth::user()->role == 'td-admin'){
+        if(Auth::user()->role == 'Admin' || Auth::user()->role == 'HR'){
             return redirect('/admin');
-        }elseif(Auth::user()->role == 'td-user'){
-            event(new AuthenticationEvent(''.Auth::user()->name.' is active'));
+        }elseif(Auth::user()->role == 'Employee'){
+            event(new AuthenticationEvent(''.Auth::user()->firstname.' was logged in.'));
             return redirect('/dashboard');
         }
     }

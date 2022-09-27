@@ -4,6 +4,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -19,13 +20,13 @@ li {
 	--lato: 'Lato', sans-serif;
 
 	--light: #F9F9F9;
-	--blue: #3C91E6;
+	--blue: #294fb3;
 	--light-blue: #CFE8FF;
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
-	--yellow: #FFCE26;
+	--green: #1c6c5a;
 	--light-yellow: #FFF2C6;
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
@@ -265,11 +266,18 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-#content nav .profile img {
+#content nav .profile-name {
+	position: relative;
+}
+#content nav .profile-name p{
+	font-size: 13px;
+}
+#content nav .profile-img img {
 	width: 36px;
 	height: 36px;
 	object-fit: cover;
 	border-radius: 50%;
+	cursor: pointer;
 }
 #content nav .switch-mode {
 	display: block;
@@ -328,6 +336,7 @@ body {
 }
 #content main .head-title .left .breadcrumb li {
 	color: var(--dark);
+	line-height: 2px;
 }
 #content main .head-title .left .breadcrumb li a {
 	color: var(--dark-grey);
@@ -386,7 +395,7 @@ body {
 }
 #content main .box-info li:nth-child(2) .bx {
 	background: var(--light-yellow);
-	color: var(--yellow);
+	color: var(--green);
 }
 #content main .box-info li:nth-child(3) .bx {
 	background: var(--light-orange);
@@ -428,7 +437,7 @@ body {
 }
 #content main .table-data .head h3 {
 	margin-right: auto;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 600;
 }
 #content main .table-data .head .bx {
@@ -479,7 +488,7 @@ body {
 	background: var(--blue);
 }
 #content main .table-data .dashboard-user-tbl table tr td .status.process {
-	background: var(--yellow);
+	background: var(--green);
 }
 #content main .table-data .dashboard-user-tbl table tr td .status.pending {
 	background: var(--orange);
@@ -539,6 +548,7 @@ body {
 }
 #content main .table-data .user-tbl table td {
 	padding: 16px 0;
+	font-size: 13px;
 }
 #content main .table-data .user-tbl table tr td:first-child {
 	display: flex;
@@ -555,6 +565,10 @@ body {
 #content main .table-data .user-tbl table tbody tr:hover {
 	background: var(--grey);
 }
+#content main .table-data .user-tbl table tbody tr .user-name {
+	display: flex;
+	flex-direction: column;
+}
 #content main .table-data .user-tbl table tr td .status {
 	font-size: 10px;
 	padding: 6px 16px;
@@ -562,13 +576,13 @@ body {
 	border-radius: 20px;
 	font-weight: 700;
 }
-#content main .table-data .user-tbl table tr td .status.completed {
+#content main .table-data .user-tbl table tr td .status.employee {
 	background: var(--blue);
 }
-#content main .table-data .user-tbl table tr td .status.process {
-	background: var(--yellow);
+#content main .table-data .user-tbl table tr td .status.admin {
+	background: var(--green);
 }
-#content main .table-data .user-tbl table tr td .status.pending {
+#content main .table-data .user-tbl table tr td .status.hr {
 	background: var(--orange);
 }
 #content main .table-data .user-tbl .user-option {
@@ -622,7 +636,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 50px 40px;
+	padding: 30px 30px;
 	height: 100%;
 }
 #content main .table-data .add-user-left .avatar #avatar{
@@ -639,6 +653,7 @@ body {
 #content main .table-data .add-user-left .avatar h1{
 	color: #777777;
 	margin-bottom: 30px;
+	text-align: center;
 }
 #content main .table-data .add-user-left .avatar p{
 	text-align: center;
@@ -660,26 +675,27 @@ body {
 	position: relative;
 }
 #content main .table-data .add-user-form .container{
-	padding: 50px 80px;
+	padding: 30px 80px;
 	width: 100%;
 }
 #content main .table-data .add-user-form .container .form-content{
 	display: flex;
 	align-items: center;
-	column-gap: 50px;
+	column-gap: 5px;
 	margin-bottom: 30px;
 }
 #content main .table-data .add-user-form .container .form-content .label{
-	width: 15%;
+	width: 25%;
 }
 #content main .table-data .add-user-form .container .form-content .input{
-	width: 85%;
+	width: 75%;
 	position: relative;
 }
 #content main .table-data .add-user-form .container .form-content .gender{
 	display: flex;
 	column-gap: 50px;
 	align-items: center;
+	flex-wrap: wrap;
 }
 #content main .table-data .add-user-form .container .form-content .gender .radio{
 	display: flex;
@@ -703,6 +719,7 @@ body {
 	display: flex;
 	column-gap: 50px;
 	align-items: center;
+	flex-wrap: wrap;
 }
 #content main .table-data .add-user-form .container .form-content .role .radio{
 	display: flex;
@@ -760,7 +777,8 @@ body {
 	column-gap: 20px;
 }
 
-/* add user errors */
+
+/* alerts */
 .alert-container{
 	position: fixed;
 	transition: 0.3s;
@@ -770,15 +788,16 @@ body {
     height: 100%;
 	padding: 20px;
     background: #00000047;
-    z-index: 2000;
+    z-index: 2100;
 	display: flex;
     justify-content: center;
     align-items: center;
     -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
     box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
 }
+/* alert errors */
 .alert-container .alert-error {
-    background: #f7f7f7;
+    background: #ffffff;
     border-radius: 15px;
 	overflow: hidden;
 }
@@ -788,10 +807,12 @@ body {
 }
 .alert-container .alert-error .alert-header{
 	text-align: center;
-	padding: 50px 0 0 0;
+	padding: 40px 0 0 0;
 }
 .alert-container .alert-error .alert-body{
-	padding: 20px 60px;
+	padding: 40px 60px;
+	color: #777777;
+	text-align: center;
 }
 .alert-container .alert-error .alert-header i{
 	font-size: 70px;
@@ -799,13 +820,54 @@ body {
 }
 .alert-container .alert-error .alert-footer{
 	width: 100%;
-    background: #ffffff;
-    height: 80px;
+    background: #f7f7f7;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .alert-container .alert-error .alert-footer button{
+	background: none;
+    border: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+/* alert success */
+.alert-container .alert-success {
+    background: #ffffff;
+    border-radius: 15px;
+	overflow: hidden;
+}
+.alert-container .alert-success li {
+    font-size: 16px;
+    color: #939393;
+}
+.alert-container .alert-success .alert-header{
+	text-align: center;
+	padding: 40px 0 0 0;
+}
+.alert-container .alert-success .alert-body{
+	padding: 40px 60px;
+	color: #777777;
+	text-align: center;
+}
+.alert-container .alert-success .alert-header i{
+	font-size: 70px;
+	color: rgb(145, 235, 157);
+}
+.alert-container .alert-success .alert-footer{
+	width: 100%;
+    background: #f7f7f7;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert-container .alert-success .alert-footer button{
 	background: none;
     border: 0;
     cursor: pointer;
@@ -853,7 +915,29 @@ body {
 
 
 
-
+@media screen and (max-width: 1500px) {
+	#content main .table-data .add-user-left .avatar {
+		padding: 30px 20px;
+	}
+	#content main .table-data .add-user-form .container {
+		padding: 30px 20px;
+	}
+	#content main .table-data .add-user-form .container .form-content {
+		align-items: inherit;
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
+	#content main .table-data .add-user-form .container .form-content .label {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	#content main .table-data .add-user-form .container .form-content .input {
+		width: 100%;
+	}
+	#content main .table-data .add-user-form .container .form-content .role .radio, #content main .table-data .add-user-form .container .form-content .gender .radio {
+		margin-bottom: 5px;
+	}
+}
 
 @media screen and (max-width: 768px) {
 	#sidebar {
@@ -873,9 +957,13 @@ body {
 
 
 
-
-
 @media screen and (max-width: 576px) {
+	#content main .head-title .date-time{
+		width: 100%;
+	}
+	.profile-name{
+		display: none;
+	}
 	#content nav form .form-input input {
 		display: none;
 	}

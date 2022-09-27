@@ -1,35 +1,16 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard | Add Users')
+@section('title', 'Technodream | Add Users')
 
 @section('content')
 <!-- MAIN -->
-    @if ($errors->any())
-        <div class="alert-container">
-            <div class="alert-error">
-                <div class="alert-header">
-                    <i class='bx bx-error-circle'></i>
-                </div>
-                <div class="alert-body">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li><i class='bx bx-error-circle' ></i> {{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="alert-footer">
-                    <button class="alert-close">Ok</button>
-                </div>
-            </div>
-        </div>
-    @endif
     <div class="table-data">
         <div class="add-user-left">
             <form id="form" action="{{route('users.page.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="avatar">
                 <img src="{{asset('td-assets/users/user-avatar.png')}}" alt="Avatar">
-                <input type="file" id="avatar">
+                <input type="file" id="avatar" name="avatar" accept="image/*">
                 <button type="button" role="button" onclick="document.getElementById('avatar').click();">Upload Avatar</button>
                 <h1>Set up new Technodream user</h1>
                 <p>It should only take a couple of minutes to complete this set up.</p>
@@ -117,6 +98,22 @@
                         <input type="text" id="position" name="position" value="{{old('position')}}" placeholder="Exp. Programmer / CSR / Project Manager">
                     </div>
                 </div>
+                <div class="form-content">
+                    <div class="label">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input">
+                        <input type="password" id="password" name="password" value="{{old('password')}}" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-content">
+                    <div class="label">
+                        <label for="password-confirmation">Confirm Password</label>
+                    </div>
+                    <div class="input">
+                        <input type="password" id="password-confirmation" name="password_confirmation" value="{{old('password_confirmation')}}" placeholder="Confirm Password">
+                    </div>
+                </div>
                 <div class="add-user-buttons">
                     <input type="button" role="button" class="reset-user-btn" value="Reset Inputs" onclick="resetForm()">
                     <input type="submit" class="create-user-btn" value="Add User">
@@ -127,3 +124,5 @@
     </div>
 <!-- MAIN -->
 @endsection
+
+@include('layouts.alert')
