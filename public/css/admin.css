@@ -418,7 +418,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	grid-gap: 24px;
-	margin-top: 24px;
+	margin-top: 36px;
 	width: 100%;
 	color: var(--dark);
 }
@@ -588,42 +588,16 @@ body {
 	background: var(--orange);
 }
 /* user option */
-#content main .table-data .user-tbl .user-option {
-	position: absolute;
-	margin-top: -200px;
-	transition: 0.3s;
-    height: auto;
-    width: auto;
-    background: #fff;
-    right: 0;
-    top: 2rem;
-    border-radius: 15px;
-    padding: 10px;
-    -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
-    box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
-}
-#content main .table-data .user-tbl .user-option.show{
-	margin-top: -200px;
-	-webkit-animation: fadeIn 0.5s;
-    animation: fadeIn 0.5s;
-}
-#content main .table-data .user-tbl .user-option ul li{
-	padding: 10px;
-	margin-bottom: 2px;
-}
-#content main .table-data .user-tbl .user-option ul li a{
-	text-decoration: none;
-    font-size: 14px;
-    font-weight: 200;
-    color: #777;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    column-gap: 10px;
-}
-#content main .table-data .user-tbl .user-option ul li:hover{
-	background: #f3f3f3;
-	border-radius: 15px;
+.add-new-user-btn{
+	background: var(--blue);
+	color: var(--light);
+	font-size: 13px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 15px;
+	border-radius: 20px;
+	column-gap: 10px;
 }
 
 /* user single option */
@@ -902,6 +876,8 @@ body {
     align-items: center;
     -webkit-box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
     box-shadow: 1px 5px 7px -1px rgb(0 0 0 / 4%);
+	-webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
 }
 /* alert errors */
 .alert-container .alert-error {

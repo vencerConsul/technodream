@@ -10,13 +10,10 @@
             <div class="head">
                 <h3>Users</h3>
                 <i class='bx bx-search' ></i>
-                <i class='bx bx-filter' onclick="showUserOption(this)"></i>
-                <div class="user-option">
-                    <ul>
-                        <li><a href="{{route('users.page.add')}}"><i class='bx bx-user-plus'></i> Add User</a></li>
-                        <li><a href=""><i class='bx bx-user-plus'></i> Add User</a></li>
-                    </ul>
-                </div>
+                <a class="add-new-user-btn" href="{{route('users.page.add')}}">
+                    <i class='bx bx-plus' ></i> 
+                    <p>Add new User</p>
+                </a>
             </div>
             <table>
                 <thead>
@@ -84,6 +81,9 @@
                     @endif
                 </tbody>
             </table>
+            <div class="pagintaion">
+                {{ $users->links() }}
+            </div>
         </div>
     </div>
 <!-- MAIN -->
