@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AdminUsersController extends Controller
 {
@@ -52,6 +53,7 @@ class AdminUsersController extends Controller
         }else{
             $avatar = NULL;
         }
+        $qrCodeUniqueID = $request->email .'-'. uniqid();
 
         $storeUser = User::create([
             'name' => ucfirst($request->firstname) .' '.ucfirst($request->middlename) .' '.ucfirst($request->lastname),
@@ -63,10 +65,21 @@ class AdminUsersController extends Controller
             'role' => ucfirst($request->role),
             'position' => ucfirst($request->position),
             'avatar' => $avatar,
+            'qrcode' => $qrCodeUniqueID,
             'password' => Hash::make($request->password)
         ]);
 
         if($storeUser){
+            $qrcodes = scandir('td-assets/users/qrcodes');
+            foreach ($qrcodes as $qrcodeFile) {
+                $rs = User::where('qrcode', $qrcodeFile)->first();
+                if (!$rs) {
+                    if($qrcodeFile != "." and $qrcodeFile != ".."){
+                            unlink ('td-assets/users/qrcodes/' . $qrcodeFile);
+                    }
+                }
+            }
+            QrCode::format('png')->merge('td-logo.png', .3, true)->style('round')->eye('circle')->color(41, 79, 179)->size(300)->generate($qrCodeUniqueID, '../public/td-assets/users/qrcodes/'.$qrCodeUniqueID.'.png');
             return back()->with('message', ucfirst($request->firstname) .' '.ucfirst($request->lastname) . ' is now a new user.');
         }
     }

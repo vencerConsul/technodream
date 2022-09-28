@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('role')->default('Employee');
+            $table->string('qrcode')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

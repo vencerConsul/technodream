@@ -20,7 +20,7 @@ li {
 	--lato: 'Lato', sans-serif;
 
 	--light: #F9F9F9;
-	--blue: #294fb3;
+	--blue: rgb(41, 79, 179);
 	--light-blue: #CFE8FF;
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
@@ -834,20 +834,20 @@ body {
 	outline: 2px solid #e2e2e2;
 }
 #content main .table-data .add-user-form .container .reset-user-btn{
-	background: #b1b1b1;
-    color: #ffffff;
+	background: var(--dark-grey);
+    color: var(--light);
     border: 0;
     border-radius: 20px;
-    padding: 15px 20px;
+    padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 30px;
 }
 #content main .table-data .add-user-form .container .create-user-btn{
-	background: #294fb3;
-    color: #ffffff;
+	background: var(--blue);
+    color: var(--light);
     border: 0;
     border-radius: 20px;
-    padding: 15px 20px;
+    padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 30px;
 }
