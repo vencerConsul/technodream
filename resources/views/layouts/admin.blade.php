@@ -113,6 +113,7 @@
 				alert(JSON.stringify(data));
 			});
 		</script>
+		@yield('script-admin')
     @endauth
 </body>
 </html>

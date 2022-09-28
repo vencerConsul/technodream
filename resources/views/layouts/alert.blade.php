@@ -26,7 +26,7 @@
     <div class="alert-container">
         <div class="alert-success">
             <div class="alert-header">
-                <i class='bx bx-check'></i>
+                <i class='bx bx-check-circle'></i>
             </div>
             <div class="alert-body">
                 <small>{{ session()->get('message') }}</small>

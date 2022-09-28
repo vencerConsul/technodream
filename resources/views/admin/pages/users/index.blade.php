@@ -33,7 +33,7 @@
                     @if($users->count() > 0)
                         @foreach ($users as $user)
                             <tr>
-                                <td>
+                                <td class="td-img">
                                     <img src="{{empty($user->avatar) ? asset('td-assets/users/user-avatar.png') : asset('td-assets/users/avatar/'. $user->avatar);}}" alt="{{$user->name}}">
                                     <div class="user-name">
                                         <p>{{$user->name}}</p>
@@ -52,7 +52,31 @@
                                         <span class="status hr">{{$user->role}}</span>
                                     @endif
                                 </td>
-                                <td class="option"><i class='bx bx-menu-alt-right'></i></td>
+                                <td>
+                                    <i class='bx bx-menu-alt-right user-single-action-icon' onclick="showSingleUserAction('{{$user->id}}')"></i>
+                                    <div class="action-container o-container-{{$user->id}}">
+                                        <div class="action-dialog">
+                                            <div class="user-single-action">
+                                                <i class='bx bx-x user-single-action-close' onclick="closeSingleAction('{{$user->id}}')"></i>
+                                                <div class="action-header">
+                                                    <img src="{{empty($user->avatar) ? asset('td-assets/users/user-avatar.png') : asset('td-assets/users/avatar/'. $user->avatar);}}" alt="">
+                                                </div>
+                                                <div class="action-body">
+                                                    <ul>
+                                                        <li><p>{{$user->name}}</p></li>
+                                                        <li><p>{{$user->email}}</p></li>
+                                                        <li><p>{{$user->position}}</p></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="action-footer">
+                                                    <a href="{{route('users.page.add')}}"><i class='bx bx-edit-alt'></i> Edit</a>
+                                                    <span></span>
+                                                    <a href=""><i class='bx bx-trash-alt'></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     @else 
@@ -63,4 +87,36 @@
         </div>
     </div>
 <!-- MAIN -->
+@endsection
+
+@section('script-admin')
+    <script>
+        // user page
+    function showUserOption(icon){
+        const userOption = document.querySelector('.user-option');
+        if(userOption.classList.contains('show')){
+            userOption.classList.remove('show');
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-filter');
+            userOption.style.marginTop = '-200px';
+        }else{
+            userOption.classList.add('show');
+            icon.classList.add('bx-x');
+            icon.classList.remove('bx-filter');
+            userOption.style.marginTop = '0';
+        }
+        
+    }
+
+    function showSingleUserAction(option){
+        const userSingleActionContainer = document.querySelector('.o-container-'+option);
+        userSingleActionContainer.style.display = 'block';
+        userSingleActionContainer.classList.add('show');
+        userSingleActionContainer.style.animation = 'fadeIn 0.3s';
+    }
+
+    function closeSingleAction(container){
+        document.querySelector(`.o-container-${container}`).style.display = 'none';
+    }
+    </script>
 @endsection

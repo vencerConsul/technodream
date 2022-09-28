@@ -125,4 +125,58 @@
 <!-- MAIN -->
 @endsection
 
+@section('script-admin')
+    <script>
+        // add user page
+        function chooseGender(gender){
+            if(gender == 'male'){
+                document.getElementById('male').checked = true;
+                document.querySelector('.icon-female').classList.remove('active');
+                document.querySelector('.icon-male').classList.add('active');
+            }else{
+                document.getElementById('female').checked = true
+                document.querySelector('.icon-male').classList.remove('active')
+                document.querySelector('.icon-female').classList.add('active');
+            }
+        }
+
+        function chooseRole(role){
+            if(role == 'admin'){
+                document.getElementById('admin').checked = true;
+                document.querySelector('.icon-hr').classList.remove('active');
+                document.querySelector('.icon-employee').classList.remove('active');
+                document.querySelector('.icon-admin').classList.add('active');
+            }else if(role == 'hr'){
+                document.getElementById('hr').checked = true;
+                document.querySelector('.icon-admin').classList.remove('active');
+                document.querySelector('.icon-employee').classList.remove('active');
+                document.querySelector('.icon-hr').classList.add('active');
+            }else{
+                document.getElementById('employee').checked = true;
+                document.querySelector('.icon-admin').classList.remove('active');
+                document.querySelector('.icon-hr').classList.remove('active');
+                document.querySelector('.icon-employee').classList.add('active');
+            }
+        }
+
+        document.getElementById('avatar').addEventListener('change', function(e){
+            const avatar = document.querySelector('.avatar img')
+            const [file] = this.files
+            if (file) {
+                avatar.src = URL.createObjectURL(file)
+            }
+        });
+
+        // reset form
+        function resetForm(){
+            document.querySelector('#form').reset();
+            document.querySelector('input').checked = false;
+            let radio = document.querySelectorAll('.radio i');
+            radio.forEach(function(item){
+                item.classList.remove('active');
+            });
+        }
+    </script>
+@endsection
+
 @include('layouts.alert')
