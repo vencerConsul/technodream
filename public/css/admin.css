@@ -18,7 +18,6 @@ li {
 :root {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
-
 	--light: #F9F9F9;
 	--blue: rgb(41, 79, 179);
 	--light-blue: #CFE8FF;
@@ -48,8 +47,34 @@ body {
 }
 
 
+/* PAGINATION */
+.pagination-container {
+    position: relative;
+	margin-top: 50px;
+}
 
+.pagination-container ul.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 10px;
+}
 
+.pagination-container .pagination li {
+    background: var(--blue);
+	color: var(--dark-grey);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+	font-weight: 300;
+}
+.pagination-container .pagination li a{
+    color: var(--light);
+	font-weight: 700;
+}
 
 /* SIDEBAR */
 #sidebar {

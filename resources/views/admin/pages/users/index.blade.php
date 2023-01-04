@@ -18,7 +18,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>User</th>
+                        <th>Name</th>
                         <th>Gender</th>
                         <th>Position</th>
                         <th>Date Created</th>
@@ -81,8 +81,8 @@
                     @endif
                 </tbody>
             </table>
-            <div class="pagintaion">
-                {{ $users->links() }}
+            <div class="pagination-container">
+                {{ $users->links('layouts.pagination') }}
             </div>
         </div>
     </div>
