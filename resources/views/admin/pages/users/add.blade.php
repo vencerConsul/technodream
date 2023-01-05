@@ -95,7 +95,15 @@
                         <label for="position">Position</label>
                     </div>
                     <div class="input">
-                        <input type="text" id="position" name="position" value="{{old('position')}}" placeholder="Exp. Programmer / CSR / Project Manager">
+                        <input type="hidden" id="position" name="position" value="{{old('position')}}" placeholder="Exp. Programmer / CSR / Project Manager">
+                        <div class="custom-select">
+                            <div class="selected-option">Select Position</div>
+                            <ul class="options">
+                                <li class="option">Option 1</li>
+                                <li class="option">Option 2</li>
+                                <li class="option">Option 3</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="form-content">
@@ -158,6 +166,29 @@
                 document.querySelector('.icon-employee').classList.add('active');
             }
         }
+
+        // select option
+        const customSelect = document.querySelector('.custom-select');
+        const selectedOption = document.querySelector('.selected-option');
+        const optionsList = document.querySelector('.options');
+        const options = document.querySelectorAll('.option');
+
+        selectedOption.addEventListener('click', () => {
+            optionsList.classList.toggle('show');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                selectedOption.innerHTML = option.innerHTML;
+                optionsList.classList.remove('show');
+            });
+        });
+
+        document.addEventListener('click', e => {
+            if (!customSelect.contains(e.target)) {
+                optionsList.classList.remove('show');
+            }
+        });
 
         document.getElementById('avatar').addEventListener('change', function(e){
             const avatar = document.querySelector('.avatar img')
